@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import type { Destination } from "@/lib/destinations";
 import { ArrowRight } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 
 export function DestinationCard({ destination }: { destination: Destination }) {
   return (

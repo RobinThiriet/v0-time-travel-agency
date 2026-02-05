@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import type { Destination } from "@/lib/destinations";
 import { DestinationCard } from "@/components/destination-card";
 import { ScrollReveal } from "@/components/scroll-reveal";
