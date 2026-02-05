@@ -2,64 +2,124 @@
 
 import Link from "next/link";
 import { ChevronDown } from "lucide-react";
+import { motion } from "framer-motion";
+
+const ease = [0.22, 1, 0.36, 1];
 
 export function Hero() {
   return (
-    <section className="relative flex min-h-screen items-center justify-center overflow-hidden">
+    <section
+      className="relative flex min-h-screen items-center justify-center overflow-hidden"
+      aria-label="Hero - Agence de voyages temporels"
+    >
       {/* Animated gradient background */}
-      <div className="animate-gradient absolute inset-0 bg-gradient-to-br from-[#0d0f14] via-[#1a1510] to-[#0d0f14]" />
+      <div className="animate-gradient absolute inset-0 bg-gradient-to-br from-background via-[#1a1510] to-background" />
 
-      {/* Subtle radial glow */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(196,166,71,0.08)_0%,_transparent_70%)]" />
+      {/* Particle-like radial glows */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_40%,_rgba(196,166,71,0.10)_0%,_transparent_70%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_400px_at_30%_70%,_rgba(196,166,71,0.04)_0%,_transparent_100%)]" />
 
       {/* Grid pattern overlay */}
       <div
-        className="absolute inset-0 opacity-[0.03]"
+        className="absolute inset-0 opacity-[0.025]"
         style={{
           backgroundImage:
-            "linear-gradient(rgba(196,166,71,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(196,166,71,0.3) 1px, transparent 1px)",
-          backgroundSize: "60px 60px",
+            "linear-gradient(rgba(196,166,71,0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(196,166,71,0.4) 1px, transparent 1px)",
+          backgroundSize: "80px 80px",
         }}
+        aria-hidden="true"
       />
 
-      <div className="relative z-10 mx-auto max-w-4xl px-6 text-center">
-        <p className="animate-fade-in-up mb-4 text-xs font-semibold uppercase tracking-[0.3em] text-primary opacity-0">
-          Agence de Voyages Temporels
-        </p>
+      {/* Decorative corner accents */}
+      <div className="absolute top-24 left-8 h-24 w-px bg-gradient-to-b from-primary/30 to-transparent md:left-16" aria-hidden="true" />
+      <div className="absolute top-24 left-8 h-px w-24 bg-gradient-to-r from-primary/30 to-transparent md:left-16" aria-hidden="true" />
+      <div className="absolute bottom-24 right-8 h-24 w-px bg-gradient-to-t from-primary/30 to-transparent md:right-16" aria-hidden="true" />
+      <div className="absolute bottom-24 right-8 h-px w-24 bg-gradient-to-l from-primary/30 to-transparent md:right-16" aria-hidden="true" />
 
-        <h1 className="animate-fade-in-up font-serif text-4xl font-bold leading-tight text-foreground opacity-0 animation-delay-200 sm:text-5xl md:text-7xl">
+      <div className="relative z-10 mx-auto max-w-5xl px-6 text-center">
+        {/* Tagline */}
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2, ease }}
+          className="mb-6 text-xs font-semibold uppercase tracking-[0.4em] text-primary md:text-sm"
+        >
+          Agence de Voyages Temporels
+        </motion.p>
+
+        {/* Main heading */}
+        <motion.h1
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, delay: 0.4, ease }}
+          className="font-serif text-4xl font-bold leading-[1.1] tracking-tight text-foreground sm:text-6xl md:text-7xl lg:text-8xl"
+        >
           <span className="text-balance">
             Explorez le Temps,{" "}
-            <span className="text-primary">Vivez l&apos;Histoire</span>
+            <span className="bg-gradient-to-r from-primary via-[#e8d48b] to-primary bg-clip-text text-transparent">
+              Vivez l&apos;Histoire
+            </span>
           </span>
-        </h1>
+        </motion.h1>
 
-        <p className="animate-fade-in-up mx-auto mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground opacity-0 animation-delay-400 md:text-lg">
+        {/* Decorative divider */}
+        <motion.div
+          initial={{ scaleX: 0 }}
+          animate={{ scaleX: 1 }}
+          transition={{ duration: 0.8, delay: 0.7, ease }}
+          className="mx-auto mt-8 h-px w-24 bg-gradient-to-r from-transparent via-primary/60 to-transparent"
+          aria-hidden="true"
+        />
+
+        {/* Subtitle */}
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.8, ease }}
+          className="mx-auto mt-8 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg lg:text-xl"
+        >
           De la Belle Epoque parisienne aux terres du Cretace, en passant par la
           Renaissance florentine. Choisissez votre epoque, nous ouvrons le
           passage.
-        </p>
+        </motion.p>
 
-        <div className="animate-fade-in-up mt-10 flex flex-col items-center gap-4 opacity-0 animation-delay-600 sm:flex-row sm:justify-center">
+        {/* CTAs */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 1.0, ease }}
+          className="mt-12 flex flex-col items-center gap-4 sm:flex-row sm:justify-center"
+        >
           <Link
             href="/destinations"
-            className="rounded-md bg-primary px-8 py-3 text-sm font-semibold text-primary-foreground transition-all duration-200 hover:bg-primary/90 hover:shadow-[0_0_20px_rgba(196,166,71,0.3)]"
+            className="group relative inline-flex items-center gap-2 overflow-hidden rounded-md bg-primary px-10 py-4 text-sm font-semibold uppercase tracking-wider text-primary-foreground transition-all duration-300 hover:shadow-[0_0_30px_rgba(196,166,71,0.35)]"
           >
-            Voir les Destinations
+            <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-200%] transition-transform duration-700 group-hover:translate-x-[200%]" />
+            <span className="relative">Voir les Destinations</span>
           </Link>
           <Link
             href="#about"
-            className="rounded-md border border-border px-8 py-3 text-sm font-semibold text-foreground transition-all duration-200 hover:border-primary/50 hover:text-primary"
+            className="rounded-md border border-border/60 px-10 py-4 text-sm font-semibold uppercase tracking-wider text-foreground transition-all duration-300 hover:border-primary/50 hover:text-primary hover:bg-primary/5"
           >
             En savoir plus
           </Link>
-        </div>
+        </motion.div>
       </div>
 
       {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-        <ChevronDown className="h-5 w-5 text-muted-foreground" />
-      </div>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1, delay: 1.4 }}
+        className="absolute bottom-10 left-1/2 -translate-x-1/2"
+      >
+        <motion.div
+          animate={{ y: [0, 8, 0] }}
+          transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
+        >
+          <ChevronDown className="h-5 w-5 text-muted-foreground/60" aria-hidden="true" />
+        </motion.div>
+      </motion.div>
     </section>
   );
 }
