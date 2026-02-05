@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, MapPin, Calendar, MessageCircle } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import type { Destination } from "@/lib/destinations";
 import { ScrollReveal } from "@/components/scroll-reveal";
 

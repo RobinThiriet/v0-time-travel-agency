@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { ChevronDown } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 
 const ease = [0.22, 1, 0.36, 1];
 
