@@ -5,7 +5,7 @@ A premium, dark-themed webapp for a fictional time-travel agency. Built with **N
 ![Next.js](https://img.shields.io/badge/Next.js-16-black?logo=next.js)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4-38B2AC?logo=tailwindcss)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript)
-![Framer Motion](https://img.shields.io/badge/Framer_Motion-11-FF0055?logo=framer)
+![Motion](https://img.shields.io/badge/Motion-12-FF0055?logo=framer)
 
 ---
 
