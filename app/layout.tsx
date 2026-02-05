@@ -7,11 +7,11 @@ import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { ChatbotWidget } from "@/components/chatbot-widget";
 
-const _playfair = Playfair_Display({
+const playfair = Playfair_Display({
   subsets: ["latin"],
   variable: "--font-playfair",
 });
-const _inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
 export const metadata: Metadata = {
   title: "TimeTravel Agency | Voyagez dans le Temps",
@@ -29,7 +29,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fr">
+    <html lang="fr" className={`${playfair.variable} ${inter.variable}`}>
       <body className="font-sans antialiased">
         <Navbar />
         <main>{children}</main>
