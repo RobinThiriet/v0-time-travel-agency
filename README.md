@@ -12,6 +12,7 @@ https://vm-w7ildhxboqro7ncbfa3fwq.vusercontent.net/
 
 - Robin Thiriet
 - Thomas Fauroux
+- Tristan Truckle
 
 ## Mission du projet
 
