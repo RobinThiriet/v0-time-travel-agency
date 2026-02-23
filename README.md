@@ -1,46 +1,56 @@
 # TimeTravel Agency - Webapp Interactive
 
-Webapp fictive d'agence de voyage temporel, realisee pour le projet final Ynov.
+Webapp fictive de voyage temporel, realisee pour le projet final Ynov.
 
 ## Membres du groupe
 
 - Robin Thiriet
 - Thomas Fauroux
 
-## Stack technique
+## Apercu
 
-- Next.js (App Router) + TypeScript
+L'application presente 3 destinations temporelles immersives:
+
+- Paris 1889 (Belle Epoque / Exposition Universelle)
+- Cretace -65M (dinosaures / aventure)
+- Florence 1504 (Renaissance / art)
+
+Fonctionnalites principales:
+
+- Landing page immersive avec animations
+- Galerie interactive des destinations
+- Pages detaillees par destination
+- Videos dediees par destination
+- Chatbot "Chronos" (IA + fallback local)
+- Quiz de recommandation personnalisee
+- Formulaire de reservation avec validation
+- FAQ
+
+## Stack Technique
+
+- Next.js 16 (App Router)
+- React 19 + TypeScript
 - Tailwind CSS
 - Motion (animations)
-- Chatbot IA via API Mistral (avec fallback local)
+- API Mistral (optionnelle pour le chatbot)
 
-## Features implementees
+## Outils IA Utilises
 
-- Landing page immersive (hero + animations)
-- Galerie de 3 destinations (Paris 1889, Cretace -65M, Florence 1504)
-- Pages detaillees par destination
-- Chatbot "Chronos" en bas a droite
-  - Reponses locales si aucune cle API
-  - Reponses IA via Mistral si `MISTRAL_API_KEY` configuree
-- Quiz de recommandation personnalisee (4 questions)
-- Formulaire de reservation avec validation + estimation de prix
-- Interface responsive mobile/desktop
+- v0 / assistant IA pour generation et iteration UI
+- Mistral AI (`mistral-small-latest`) pour le chatbot (si cle configuree)
 
-## Outils IA utilises
-
-- V0 / assistant IA pour generation et iteration UI
-- Mistral AI (`mistral-small-latest`) pour le chatbot (optionnel, selon cle API)
-
-## Installation locale
+## Lancer En Local
 
 ```bash
-git clone <url-du-repo>
-cd v0-time-travel-agency
+git clone https://github.com/RobinThiriet/TimeTravelAgency.git
+cd TimeTravelAgency
 npm install
 npm run dev
 ```
 
-## Variables d'environnement (optionnel)
+Application disponible sur `http://localhost:3000`.
+
+## Variables D'Environnement (Optionnel)
 
 Creer un fichier `.env.local`:
 
@@ -49,23 +59,62 @@ MISTRAL_API_KEY=your_key_here
 MISTRAL_MODEL=mistral-small-latest
 ```
 
-Sans ces variables, le chatbot fonctionne en mode mock (local).
+Si ces variables ne sont pas definies, le chatbot fonctionne en mode mock local.
 
-## Assets (photos / videos)
+## Structure Rapide
 
-- Images destinations: `public/images/`
-- Video hero (optionnelle): `public/videos/hero.mp4` (a integrer si vous voulez un fond video)
+```text
+app/
+  page.tsx
+  destinations/
+  api/chat/route.ts
+components/
+  hero.tsx
+  destination-detail.tsx
+  chatbot-widget.tsx
+  travel-quiz.tsx
+  reservation-section.tsx
+  faq-section.tsx
+lib/
+  destinations.ts
+  chatbot.ts
+public/
+  images/
+  videos/
+```
+
+## Assets
+
+- Images: `public/images/`
+- Videos: `public/videos/paris.mp4`, `public/videos/cretace.mp4`, `public/videos/florence.mp4`
 
 ## Deploiement
 
-- Vercel recommande (`import project` puis deploy)
-- Alternative: Netlify / Render
+Recommande: **Vercel** (integration directe GitHub).
+
+Etapes:
+
+1. Importer le repo GitHub dans Vercel.
+2. Ajouter les variables d'environnement (optionnel).
+3. Deploy.
+
+## Rollback
+
+Un tag de secours est disponible:
+
+- `initial-stable`
+
+Commandes utiles:
+
+```bash
+git checkout initial-stable
+```
 
 ## Livrables Moodle
 
 - URL publique de la webapp
-- Lien repo GitHub (ou export du code)
-- Ce README complete avec les noms des 4 membres
+- Lien du repository GitHub
+- README technique avec stack + features + IA + membres
 
 ## Licence
 
