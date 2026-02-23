@@ -6,8 +6,25 @@ A premium, dark-themed webapp for a fictional time-travel agency. Built with **N
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4-38B2AC?logo=tailwindcss)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript)
 ![Motion](https://img.shields.io/badge/Motion-12-FF0055?logo=framer)
+![Node.js](https://img.shields.io/badge/Node-18+-43853D?logo=node.js)
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
+![Vercel](https://img.shields.io/badge/Deploy-Vercel-000000?logo=vercel)
 
 ---
+
+## Table of Contents
+
+- [Overview](#overview)
+- [Features](#features)
+- [Tech Stack](#tech-stack)
+- [Project Structure](#project-structure)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+- [Design System](#design-system)
+- [Deploy](#deploy)
+- [Contributors](#contributors)
+- [License](#license)
 
 ## Overview
 
@@ -108,6 +125,28 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) in your browser.
 
+#### Scripts
+
+Common scripts available in `package.json`:
+
+- `npm run dev` — start Next.js in development mode
+- `npm run build` — build the production app
+- `npm start` — start the production server after build
+- `npm run lint` — run ESLint checks
+
+If you use `pnpm` use `pnpm install` and `pnpm run <script>`.
+
+#### Environment
+
+This project uses the Next.js App Router. Example `.env.local` (add keys as needed):
+
+```
+# NEXT_PUBLIC_API_BASE=https://api.example.com
+# NEXT_PUBLIC_ANALYTICS_ID=your-id
+```
+
+Add any provider keys or feature flags here before running `build`.
+
 ### Using shadcn CLI
 
 ```bash
@@ -133,11 +172,37 @@ Typography uses **Playfair Display** for all headings (`font-serif`) and **Inter
 
 ---
 
+## Architecture & Decisions
+
+This project is structured to showcase a modern Next.js + Tailwind CSS frontend with an emphasis on animation and accessibility. Key decisions:
+
+- **App Router (Next.js 16)**: chosen for file-based routing and React Server Components where applicable.
+- **TypeScript**: provides type-safety across components and `lib/` data.
+- **shadcn/ui + Radix**: used for accessible, composable primitives and consistent design tokens.
+- **Framer Motion**: primary animation engine for entrance and scroll-based animations.
+- **Performance**: images are lazy-loaded and sized; critical hero assets marked priority.
+
+Where to change core pieces:
+
+- Design tokens and global styles: `app/globals.css`
+- Fonts and root layout: `app/layout.tsx`
+- Destination content: `lib/destinations.ts`
+
+Short rationale: keep UI components stateless where possible and centralize design tokens to make theme adjustments low-friction.
+
 ## Deploy
 
 Deploy instantly on Vercel:
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/RobinThiriet/v0-time-travel-agency)
+
+---
+
+## Contributors
+**TimeTravel Agency — Webapp Interactive**
+
+Project created by Thomas FAUROUX and Robin THIRIET
+Mastère (Expert in Cloud, Security & Infrastructure) — 2024–2026
 
 ---
 
