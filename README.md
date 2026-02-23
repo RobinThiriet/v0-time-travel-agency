@@ -1,45 +1,48 @@
 # TimeTravel Agency - Webapp Interactive
 
-Webapp fictive de voyage temporel, realisee pour le projet final Ynov.
+Webapp moderne et interactive pour une agence fictive de voyage temporel, realisee dans le cadre du projet final Ynov.
 
 ## Membres du groupe
 
 - Robin Thiriet
 - Thomas Fauroux
 
-## Apercu
+## Mission du projet
 
-L'application presente 3 destinations temporelles immersives:
+Concevoir une application web immersive permettant de:
 
-- Paris 1889 (Belle Epoque / Exposition Universelle)
-- Cretace -65M (dinosaures / aventure)
-- Florence 1504 (Renaissance / art)
+- Decouvrir 3 destinations temporelles (Paris 1889, Cretace -65M, Florence 1504)
+- Interagir avec un agent conversationnel
+- Personnaliser son voyage selon ses preferences
+- Preparer une reservation
 
-Fonctionnalites principales:
-
-- Landing page immersive avec animations
-- Galerie interactive des destinations
-- Pages detaillees par destination
-- Videos dediees par destination
-- Chatbot "Chronos" (IA + fallback local)
-- Quiz de recommandation personnalisee
-- Formulaire de reservation avec validation
-- FAQ
-
-## Stack Technique
+## Stack technique
 
 - Next.js 16 (App Router)
 - React 19 + TypeScript
 - Tailwind CSS
 - Motion (animations)
-- API Mistral (optionnelle pour le chatbot)
+- API Mistral (chatbot, optionnel)
 
-## Outils IA Utilises
+## Features implementees
 
-- v0 / assistant IA pour generation et iteration UI
-- Mistral AI (`mistral-small-latest`) pour le chatbot (si cle configuree)
+- Page d'accueil immersive avec hero anime + fond video
+- Presentation de l'agence et CTA vers les destinations
+- Galerie de 3 destinations avec cards interactives
+- Page detaillee pour chaque destination
+- Chatbot "Chronos" flottant (bas-droite)
+- FAQ agence
+- Quiz de recommandation personnalisee (4 questions)
+- Formulaire de reservation (destination + date + duree + validation)
+- Design responsive (mobile / desktop)
 
-## Lancer En Local
+## IA utilisees (transparence)
+
+- Generation/iteration UI: v0 + assistant IA
+- Agent conversationnel: API Mistral (`mistral-small-latest`) avec fallback local si aucune cle n'est configuree
+- Prompt systeme personnalise pour le role "Chronos"
+
+## Installation locale
 
 ```bash
 git clone https://github.com/RobinThiriet/TimeTravelAgency.git
@@ -48,20 +51,27 @@ npm install
 npm run dev
 ```
 
-Application disponible sur `http://localhost:3000`.
+Application locale: `http://localhost:3000`
 
-## Variables D'Environnement (Optionnel)
+## Variables d'environnement (optionnel)
 
-Creer un fichier `.env.local`:
+Creer `.env.local`:
 
 ```env
 MISTRAL_API_KEY=your_key_here
 MISTRAL_MODEL=mistral-small-latest
 ```
 
-Si ces variables ne sont pas definies, le chatbot fonctionne en mode mock local.
+Sans ces variables, le chatbot fonctionne en mode mock local.
 
-## Structure Rapide
+## Assets et credits
+
+- Images destinations: `public/images/`
+- Videos destinations: `public/videos/paris.mp4`, `public/videos/cretace.mp4`, `public/videos/florence.mp4`
+- Librairies open source: Next.js, React, Tailwind CSS, Motion, Lucide, shadcn/ui
+- API IA: Mistral AI
+
+## Structure du projet
 
 ```text
 app/
@@ -70,11 +80,12 @@ app/
   api/chat/route.ts
 components/
   hero.tsx
+  featured-destinations.tsx
   destination-detail.tsx
   chatbot-widget.tsx
   travel-quiz.tsx
-  reservation-section.tsx
   faq-section.tsx
+  reservation-section.tsx
 lib/
   destinations.ts
   chatbot.ts
@@ -83,39 +94,34 @@ public/
   videos/
 ```
 
-## Assets
-
-- Images: `public/images/`
-- Videos: `public/videos/paris.mp4`, `public/videos/cretace.mp4`, `public/videos/florence.mp4`
-
 ## Deploiement
 
-Recommande: **Vercel** (integration directe GitHub).
+Plateforme recommandee: **Vercel**
 
-Etapes:
+1. Importer le repository GitHub
+2. Ajouter les variables d'environnement (optionnel)
+3. Lancer le deploy
+4. Tester l'URL publique sur desktop et mobile
 
-1. Importer le repo GitHub dans Vercel.
-2. Ajouter les variables d'environnement (optionnel).
-3. Deploy.
+## Livrables (Moodle)
+
+- URL publique de la webapp (fonctionnelle)
+- Repository GitHub
+- README technique (ce document)
+- Noms et prenoms des membres sur les livrables
 
 ## Rollback
 
-Un tag de secours est disponible:
+Tag de secours disponible:
 
 - `initial-stable`
 
-Commandes utiles:
+Commande:
 
 ```bash
 git checkout initial-stable
 ```
 
-## Livrables Moodle
-
-- URL publique de la webapp
-- Lien du repository GitHub
-- README technique avec stack + features + IA + membres
-
 ## Licence
 
-Projet pedagogique Ynov.
+Projet pedagogique - Ynov Campus.
